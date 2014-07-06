@@ -60,6 +60,14 @@ public class Main extends Plugin {
             }
         });
     }
+    
+    public void onDisable() {
+        try {
+            IRC.sock.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void connect() {
         getLogger().info("Attempting connection...");
